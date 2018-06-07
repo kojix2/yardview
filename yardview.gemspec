@@ -33,6 +33,15 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "yard"
+  spec.add_dependency "glib2"
+  spec.add_dependency "atk"
+  spec.add_dependency "gdk3"
+  spec.add_dependency "cairo"
+  spec.add_dependency "cairo-gobject"
+  spec.add_dependency "pango"
+  spec.add_dependency "gdk_pixbuf2"
+  spec.add_dependency "gio2"
+ 
   spec.add_dependency "gtk3"
   spec.add_dependency "webkit2-gtk"
   spec.add_development_dependency "bundler", "~> 1.16"
