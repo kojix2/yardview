@@ -3,4 +3,4 @@ simple `yard server -g` viewer
 
 ## Installation
 
-    $ rake install yardview
+    $ rake install
