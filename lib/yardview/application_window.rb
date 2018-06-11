@@ -1,29 +1,36 @@
+require 'gtk3'
+
 module Yardview
-  class Viewer
-    def initialize
+  class ApplicationWindow < Gtk::ApplicationWindow
+    type_register
+
+    def self.init
+      set_template resource: '/com/github/kojix2/yardview/yardview.ui'
+      bind_template_child 'box'
+    end
+
+    def initialize(application)
+      # calling class method.
+      self.class.set_connect_func { |handler| method(handler) }
+
+      super application: application
+      set_title 'YardView'
+
       start_yard_server
       create_gui
-      Gtk.main
     end
 
     def create_gui
-      bd = Gtk::Builder.new
-      path = File.expand_path('../../resources/yardview.ui', __dir__)
-      bd.add_from_file(path)
-      win = bd.get_object('win')
-      win.set_default_size(800, 600)
-      win.signal_connect('destroy') do
+      signal_connect('destroy') do
         Gtk.main_quit
         Process.kill(:TERM, @yard)
         @yard = nil
       end
       at_exit { Process.kill(:TERM, @yard) unless @yard.nil? }
-      box = bd.get_object('box')
       @view = WebKit2Gtk::WebView.new
       @view.load_uri('http://localhost:8808')
-      win.add @view, expand: true, fill: true
-      bd.connect_signals { |handler| method(handler) }
-      win.show_all
+      box.add @view, expand: true, fill: true
+      @view.show
     end
 
     def port_open?(port)
@@ -47,7 +54,7 @@ module Yardview
         @yard = spawn('yard server -g -p 8808 --reload')
         sleep 1
       else
-        raise "port 8808 is in use!"
+        raise 'port 8808 is in use!'
       end
     end
   end

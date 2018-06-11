@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/kojix2/yardview">
+    <file preprocess="xml-stripblanks">yardview.ui</file>
+  </gresource>
+</gresources>

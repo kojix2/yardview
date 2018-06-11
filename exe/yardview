@@ -1,5 +1,28 @@
 #!/usr/bin/env ruby
 
-require "yardview"
+require 'yardview'
+require 'fileutils'
 
-Yardview::Viewer.new
+resource_xml = File.expand_path('../resources/gresources.xml', __dir__)
+resource_bin = File.expand_path('../gresource.bin', __dir__)
+
+app = Gtk::Application.new 'com.github.kojix2.yardview', Gio::ApplicationFlags::FLAGS_NONE
+
+system('glib-compile-resources',
+       '--target', resource_bin,
+       '--sourcedir', File.dirname(resource_xml),
+       resource_xml)
+
+resource = Gio::Resource.load(resource_bin)
+Gio::Resources.register(resource)
+
+at_exit do
+  FileUtils.rm_f(resource_bin)
+end
+
+app.signal_connect :activate do |application|
+  window = Yardview::ApplicationWindow.new application
+  window.present
+end
+
+app.run
