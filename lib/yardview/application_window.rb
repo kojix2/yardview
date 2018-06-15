@@ -42,7 +42,7 @@ module Yardview
     end
 
     def on_top_clicked
-      puts 'Todo: scroll up'
+      @view.run_javascript("window.scrollTo(0,0);")
     end
 
     def on_refresh_clicked
