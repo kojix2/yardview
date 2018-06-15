@@ -15,6 +15,7 @@ module Yardview
 
       super application: application
       set_title 'YardView'
+      set_icon GdkPixbuf::Pixbuf.new resource: '/com/github/kojix2/yardview/ruby.png'
 
       start_yard_server
       create_gui
@@ -39,6 +40,10 @@ module Yardview
 
     def on_home_clicked
       @view.load_uri('http://localhost:8808')
+    end
+
+    def on_back_clicked
+      @view.go_back
     end
 
     def on_top_clicked

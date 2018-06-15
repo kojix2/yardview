@@ -2,5 +2,6 @@
 <gresources>
   <gresource prefix="/com/github/kojix2/yardview">
     <file preprocess="xml-stripblanks">yardview.ui</file>
+    <file>ruby.png</file>
   </gresource>
 </gresources>
