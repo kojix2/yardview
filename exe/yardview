@@ -6,7 +6,7 @@ require 'fileutils'
 resource_xml = File.expand_path('../resources/gresources.xml', __dir__)
 resource_bin = File.expand_path('../gresource.bin', __dir__)
 
-app = Gtk::Application.new 'com.github.kojix2.yardview', Gio::ApplicationFlags::FLAGS_NONE
+app = Yardview.application
 
 system('glib-compile-resources',
        '--target', resource_bin,

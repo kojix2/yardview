@@ -7,12 +7,14 @@ module Yardview
     def self.init
       set_template resource: '/com/github/kojix2/yardview/yardview.ui'
       bind_template_child 'box'
+      set_connect_func do |handler_name|
+        lambda do
+          Yardview.application.active_window.__send__(handler_name)
+        end
+      end
     end
 
     def initialize(application)
-      # calling class method.
-      self.class.set_connect_func { |handler| method(handler) }
-
       super application: application
       set_title 'YardView'
       set_icon GdkPixbuf::Pixbuf.new resource: '/com/github/kojix2/yardview/ruby.png'
