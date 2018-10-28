@@ -25,7 +25,6 @@ module Yardview
 
     def create_gui
       signal_connect('destroy') do
-        Gtk.main_quit
         Process.kill(:INT, @yard)
         @yard = nil
       end
