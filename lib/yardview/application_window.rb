@@ -26,10 +26,10 @@ module Yardview
     def create_gui
       signal_connect('destroy') do
         Gtk.main_quit
-        Process.kill(:TERM, @yard)
+        Process.kill(:INT, @yard)
         @yard = nil
       end
-      at_exit { Process.kill(:TERM, @yard) unless @yard.nil? }
+      at_exit { Process.kill(:INT, @yard) unless @yard.nil? }
       @view = WebKit2Gtk::WebView.new
       @view.load_uri('http://localhost:8808')
       box.add @view, expand: true, fill: true
