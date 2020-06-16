@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yardview (0.2.0)
+    yardview_gtk3 (0.2.0)
       atk
       cairo
       cairo-gobject
@@ -60,7 +60,7 @@ PLATFORMS
 DEPENDENCIES
   bundler
   rake
-  yardview!
+  yardview_gtk3!
 
 BUNDLED WITH
    2.1.4
