@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'gtk3'
 
 module Yardview
@@ -7,4 +9,3 @@ module Yardview
     end
   end
 end
-

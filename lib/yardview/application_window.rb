@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'gtk3'
 
 module Yardview
@@ -48,7 +50,7 @@ module Yardview
     end
 
     def on_top_clicked
-      @view.run_javascript("window.scrollTo(0,0);")
+      @view.run_javascript('window.scrollTo(0,0);')
     end
 
     def on_refresh_clicked
