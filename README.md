@@ -1,8 +1,11 @@
 # Yardview
-simple `yard server -g` viewer
+
+simple GTK3 GUI `yard server -g` viewer.
+
+    $ yardview
 
 ![Alt text](/resources/yardview_screenshot.png?raw=true "screenshot")
 
 ## Installation
 
-    $ rake install
+    $ gem install yardview_gtk3
