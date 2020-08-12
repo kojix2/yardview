@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yardview_gtk3 (0.3.0)
+    yardview_gtk3 (0.4.0)
       atk
       cairo
       cairo-gobject
@@ -19,7 +19,7 @@ GEM
   specs:
     atk (3.4.3)
       glib2 (= 3.4.3)
-    cairo (1.16.5)
+    cairo (1.16.6)
       native-package-installer (>= 1.0.3)
       pkg-config (>= 1.2.2)
     cairo-gobject (3.4.3)
@@ -48,7 +48,7 @@ GEM
     pango (3.4.3)
       cairo-gobject (= 3.4.3)
       gobject-introspection (= 3.4.3)
-    pkg-config (1.4.1)
+    pkg-config (1.4.2)
     rake (13.0.1)
     webkit2-gtk (3.4.3)
       gtk3 (= 3.4.3)
