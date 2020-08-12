@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['kojix2']
   spec.email         = ['2xijok@gmail.com']
 
-  spec.summary       = 'yard document viewer'
-  spec.description   = 'yard document viewer'
+  spec.summary       = 'GUI Yard document viewer'
+  spec.description   = 'Simple GUI application to show the yard documents of installed Gems.'
   spec.homepage      = 'https://github.com/kojix2/yardview'
   spec.license       = 'MIT'
 
