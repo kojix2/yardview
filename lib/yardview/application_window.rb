@@ -16,11 +16,14 @@ module Yardview
       end
     end
 
-    def initialize(application)
+    attr_accessor :port
+
+    def initialize(application, port: port_num)
       super application: application
       set_title 'YardView'
       set_icon GdkPixbuf::Pixbuf.new resource: '/com/github/kojix2/yardview/ruby.png'
 
+      @port = port
       start_yard_server
       create_gui
     end
@@ -32,7 +35,7 @@ module Yardview
       end
       at_exit { Process.kill(:INT, @yard) unless @yard.nil? }
       @view = WebKit2Gtk::WebView.new
-      @view.load_uri('http://localhost:8808')
+      @view.load_uri("http://localhost:#{port}")
       box.add @view, expand: true, fill: true
       @view.show
     end
@@ -42,7 +45,7 @@ module Yardview
     end
 
     def on_home_clicked
-      @view.load_uri('http://localhost:8808')
+      @view.load_uri("http://localhost:#{port}")
     end
 
     def on_back_clicked
@@ -58,11 +61,11 @@ module Yardview
     end
 
     def start_yard_server
-      if port_open? 8808
-        @yard = spawn('yard server -g -p 8808 --reload')
+      if port_open? port
+        @yard = spawn("yard server -g -p #{port} --reload")
         sleep 1
       else
-        raise 'port 8808 is in use!'
+        raise "port #{port} is in use!"
       end
     end
   end

@@ -1,8 +1,15 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require 'optparse'
 require 'yardview'
 require 'fileutils'
+
+Version = Yardview::VERSION
+opt = OptionParser.new
+port_num ||= 8808
+opt.on('-p', '--port VAL', Integer) { |v| port_num = v }
+opt.parse!(ARGV)
 
 resource_xml = File.expand_path('../resources/gresources.xml', __dir__)
 resource_bin = File.expand_path('../gresource.bin', __dir__)
@@ -22,7 +29,7 @@ at_exit do
 end
 
 app.signal_connect :activate do |application|
-  window = Yardview::ApplicationWindow.new application
+  window = Yardview::ApplicationWindow.new application, port: port_num
   window.present
 end
 
