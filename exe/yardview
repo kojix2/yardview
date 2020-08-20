@@ -7,8 +7,8 @@ require 'fileutils'
 port_num ||= 8808
 
 opt = OptionParser.new
-opt.program_name = 'Yardview'
-opt.version = Yardview::VERSION
+opt.program_name = 'YardView'
+opt.version = YardView::VERSION
 opt.on('-p', '--port VAL', Integer) { |v| port_num = v }
 opt.parse!(ARGV)
 
@@ -24,13 +24,13 @@ at_exit do
   FileUtils.rm_f(resource_bin)
 end
 
-app = Yardview.application
+app = YardView.application
 
 resource = Gio::Resource.load(resource_bin)
 Gio::Resources.register(resource)
 
 app.signal_connect :activate do |application|
-  window = Yardview::ApplicationWindow.new application, port: port_num
+  window = YardView::ApplicationWindow.new application, port: port_num
   window.present
 end
 

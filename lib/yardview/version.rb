@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module Yardview
+module YardView
   VERSION = '0.4.1'
 end

@@ -2,7 +2,7 @@
 <!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <template class="YardviewApplicationWindow" parent="GtkApplicationWindow">
+  <template class="YardViewApplicationWindow" parent="GtkApplicationWindow">
     <property name="can_focus">False</property>
     <property name="opacity">0.90</property>
     <property name="type">popup</property>

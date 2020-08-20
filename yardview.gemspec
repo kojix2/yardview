@@ -6,7 +6,7 @@ require 'yardview/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'yardview_gtk3'
-  spec.version       = Yardview::VERSION
+  spec.version       = YardView::VERSION
   spec.authors       = ['kojix2']
   spec.email         = ['2xijok@gmail.com']
 

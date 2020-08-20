@@ -2,7 +2,7 @@
 
 require 'gtk3'
 
-module Yardview
+module YardView
   class ApplicationWindow < Gtk::ApplicationWindow
     type_register
 
@@ -11,7 +11,7 @@ module Yardview
       bind_template_child 'box'
       set_connect_func do |handler_name|
         lambda do
-          Yardview.application.active_window.__send__(handler_name)
+          YardView.application.active_window.__send__(handler_name)
         end
       end
     end

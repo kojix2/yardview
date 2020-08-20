@@ -1,4 +1,4 @@
-# Yardview
+# YardView
 
 [![Gem Version](https://badge.fury.io/rb/yardview_gtk3.svg)](https://badge.fury.io/rb/yardview_gtk3)
 

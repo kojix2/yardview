@@ -5,5 +5,5 @@ require 'yardview/application'
 require 'yardview/application_window'
 require 'webkit2-gtk'
 
-module Yardview
+module YardView
 end
