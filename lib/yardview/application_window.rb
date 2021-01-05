@@ -62,7 +62,7 @@ module YardView
 
     def start_yard_server
       if port_open? port
-        @yard = spawn("yard server -g -p #{port} --reload")
+        @yard = spawn("yard server -g -p #{port} -s thin --reload")
         sleep 1
       else
         raise "port #{port} is in use!"
