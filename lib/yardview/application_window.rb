@@ -41,7 +41,7 @@ module YardView
     end
 
     def port_open?(port)
-      !system("lsof -i:#{port}", out: '/dev/null')
+      system("lsof -i:#{port}", out: '/dev/null')
     end
 
     def on_home_clicked
@@ -62,10 +62,10 @@ module YardView
 
     def start_yard_server
       if port_open? port
-        @yard = spawn("yard server -g -p #{port} -s thin --reload")
-        sleep 1
-      else
         raise "port #{port} is in use!"
+      else
+        @yard = spawn('yard', 'server', '-g', '-p', "#{port}", '-s', 'thin', '--reload')
+        sleep 1
       end
     end
   end
