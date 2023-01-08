@@ -1,13 +1,15 @@
 # YardView
 
-[![Gem Version](https://badge.fury.io/rb/yardview_gtk3.svg)](https://badge.fury.io/rb/yardview_gtk3)
-
-simple GTK3 GUI `yard server -g` viewer.
-
-    $ yardview
+Simple GUI `yard server -g` viewer.
 
 ![Screenshot](/resources/yardview_screenshot.png?raw=true "screenshot")
 
-## Installation
+Installation
 
-    $ gem install yardview_gtk3
+[![Gem Version](https://badge.fury.io/rb/yardview_gtk3.svg)](https://badge.fury.io/rb/yardview_gtk3)
+
+    gem install yardview_gtk3
+
+Usage
+
+    yardview
