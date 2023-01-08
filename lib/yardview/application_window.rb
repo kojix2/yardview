@@ -61,12 +61,10 @@ module YardView
     end
 
     def start_yard_server
-      if port_open? port
-        raise "port #{port} is in use!"
-      else
-        @yard = spawn('yard', 'server', '-g', '-p', "#{port}", '-s', 'thin', '--reload')
-        sleep 1
-      end
+      raise "port #{port} is in use!" if port_open? port
+
+      @yard = spawn('yard', 'server', '-g', '-p', "#{port}", '--reload')
+      sleep 1
     end
   end
 end
