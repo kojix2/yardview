@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'gtk3'
-  spec.add_dependency 'rack', '<3'
+  spec.add_dependency 'rack', '<4'
   spec.add_dependency 'webkit2-gtk'
   spec.add_dependency 'webrick', '1.8.2'
   spec.add_dependency 'yard', '0.9.44'
